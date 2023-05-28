@@ -84,6 +84,17 @@
     .reset-button:hover {
       background-color: #4d1414;
     }
+      /* Media queries for responsiveness */
+      @media (max-width: 480px) {
+        .card {
+          padding: 15px;
+        }
+  
+        .love-score {
+          font-size: 30px;
+          padding: 40px;
+        }
+      }
   </style>
 </head>
 <body>
@@ -116,7 +127,7 @@ function calculate() {
   var loveScore = Math.random() * 100;
   loveScore = Math.floor(loveScore) + 1;
 
-  document.getElementById('loveText').textContent = `Your love score is ${loveScore}%`;
+  document.getElementById('loveText').textContent = `${name1} loves ${name2} is ${loveScore}%`;
   document.querySelector('.container').style.display = 'none';
   document.querySelector('.love-score').style.display = 'block';
   document.querySelector('.reset-button').style.display = 'block';
