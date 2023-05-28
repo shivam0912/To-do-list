@@ -12,8 +12,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background:#a04545
-      
+      background: #a04545;
     }
 
     /* Style the container */
@@ -21,10 +20,7 @@
       display: flex;
       justify-content: space-between;
       border-radius: 12px;
-    
-
     }
-  
 
     /* Style the card */
     .card {
@@ -32,8 +28,6 @@
       padding: 50px;
       background-color: #f1f1f1;
       box-shadow: 0 15px 8px 0 rgba(0, 0, 0, 0.2);
-      
-      
     }
 
     /* Style the input section */
@@ -61,7 +55,8 @@
     .love-button:hover {
       background-color: #4d1414;
     }
-    .love-score{
+
+    .love-score {
       display: none;
       font-size: 40px;
       background: #fff;
@@ -78,40 +73,41 @@
 <body>
   <div class="container">
     <div class="cards">
-     <div class="card">
+      <div class="card">
         <input type="text" placeholder="Enter your name" id="name1">
-        
       </div>
       <div class="card">
         <input type="text" placeholder="Enter their name" id="name2">
-       
       </div>
-   </div>
-   <button class="love-button" onclick="calculate()">Love</button>
-    
-    
+    </div>
+    <button class="love-button" onclick="calculate()">Love</button>
+    <button class="reset-button" onclick="resetPage()">Check Again</button>
   </div>
-  <div class="love-score" id="loveText" ></div>
+  <div class="love-score" id="loveText"></div>
 </body>
 <script>
-function calculate(){
+function calculate() {
   const name1 = document.getElementById('name1').value;
   const name2 = document.getElementById('name2').value;
-  //console.log(name1+" "+name2);
-  var loveScore = Math.random()*100;
-  loveScore = Math.floor(loveScore)+1;
+
   if (name1.trim() === '' || name2.trim() === '') {
     alert('Please fill in both fields.');
     return;
   }
+
+  var loveScore = Math.floor(Math.random() * 100) + 1;
+
   document.getElementById('loveText').textContent = `Your love score is ${loveScore}%`;
-  document.querySelector('.container').style.display='none';
+  document.querySelector('.container').style.display = 'none';
   document.querySelector('.love-score').style.display = 'block';
-  console.log(loveScore)
-  name1.value = '';
-  name2.value = '';
+}
+
+function resetPage() {
+  document.getElementById('name1').value = '';
+  document.getElementById('name2').value = '';
+  document.getElementById('loveText').textContent = '';
+  document.querySelector('.container').style.display = 'flex';
+  document.querySelector('.love-score').style.display = 'none';
 }
 </script>
 </html>
-
-
