@@ -1,2 +1,1 @@
-# Love-Score
-Check your love score with someone 
+# to-do-app
